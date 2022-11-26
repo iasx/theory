@@ -30,7 +30,7 @@ Foo
 
 ### Assignment
 ```
-a = 1 or a := 1 or a <- 1 or a: 1 (context-dependent assignment)
+a = 1 or a := 1 or a ← 1 or a: 1 (context-dependent assignment)
 ```
 > *definition, declaration, initialization, alias*
 - Specifies correspondance between a symbol and an object (value).
@@ -73,7 +73,7 @@ True
 ```
 > *character, sign, rune*
 - Image of a letter, number or any other character.
-- Encoding is collection of correspondings between symbols and natural numbers, which are used to represent them (`Number -> Character` pairs).
+- Encoding is collection of correspondings between symbols and natural numbers, which are used to represent them (`Number → Character` pairs).
 
 
 ### Collection
@@ -93,7 +93,7 @@ a, b, c..
 - ***Generalization of Order***
 > *series, row*
 - Ordered collection.
-- Has index, which is a number that denotes the position of an element in the collection `Sequence[1] -> a`.
+- Has index, which is a number that denotes the position of an element in the collection `Sequence[1] → a`.
 - Infinite sequences are possible. They can be defined via expression or ellipsis `..` when the pattern is obvious, and are equivalent to functions.
 - Sequences can be sliced, iterated, etc.
 
@@ -132,7 +132,7 @@ a, b, c..
 
 ### Map
 ```
-a -> b or a => b
+a → b or a ⇨ b
 ```
 > *arrow, morphism, transformation, correspondance, projection, relation, conversion, link*
 - ***Generalization of Relation***
@@ -142,7 +142,7 @@ a -> b or a => b
 
 ### Function
 ```
-x -> x² or (x, y) => x²+y² or (args..) = args[1]² + args[2]² + args[3]²
+x → x² or (x, y) ⇨ x²+y² or (args..) = args[1]² + args[2]² + args[3]²
 ```
 > *method, procedure*
 - Denotes a transformation rule, by which a group of input values (arguments) is mapped to output value (result).
@@ -150,9 +150,9 @@ x -> x² or (x, y) => x²+y² or (args..) = args[1]² + args[2]² + args[3]²
 
 
 ### Predicate
-a != b
+a ≠ b
 > *condition*
-- Function that returns bool value depending on combination of it's arguments and inner logic `(a != b){a: 1, b: 1} -> False`.
+- Function that returns bool value depending on combination of it's arguments and inner logic `(a ≠ b){a: 1, b: 1} → False`.
 - May be used to filter collections, define a type, relation, etc.
 
 
@@ -162,16 +162,16 @@ a != b
 ```
 - Unordered collection without repetitions.
 - Certain operations can be performed on sets (set arithmetics).
-- Similarly to collections, there can be empty set `∅ -> {}` and Universum `U -> {*}`.
+- Similarly to collections, there can be empty set `∅ → {}` and Universum `U → {*}`.
 
 
 ### Object
 ```
-{a: [1], b: {2, 3}, 42: (x) -> x²}
+{a: [1], b: {2, 3}, 42: (x) → x²}
 ```
 > *dictionary, record, structure, document*
 - ***Generalization of Structure***
-- Set of `Symbol -> Value` pairs.
+- Set of `Symbol → Value` pairs.
 - Symbol is usually referred to as key, index or field.
 
 
@@ -180,7 +180,7 @@ a != b
 {a: 1, b: 2, c: 3}
 ```
 - Set with repetitions.
-- Set of `Key -> Number` pairs.
+- Set of `Key → Number` pairs.
 - Value represents the number of repetitions of the key-element.
 
 
@@ -189,9 +189,9 @@ a != b
 Class{a: Number, b: String, c: List<Bool>}
 ```
 > *schema, template*
-- Combination of set of `Key -> Type` pairs and a type of the same name.
+- Combination of set of `Key → Type` pairs and a type of the same name.
 - Similarly to types, classes can extend other types/classes, which means that they inherit all the properties of the parent type, modifying it's content or behavior.
-- Class has a special feature - constructor, which is a function with a name of the class, that returns an object of type of the class `Class(1,"42", [True]) -> Class{a: 1, b: "42", c: [True]}`. This transformation is called instantiation. Constructors may be defined explicitly in order to describe complex instantiation behavior.
+- Class has a special feature - constructor, which is a function with a name of the class, that returns an object of type of the class `Class(1,"42", [True]) → Class{a: 1, b: "42", c: [True]}`. This transformation is called instantiation. Constructors may be defined explicitly in order to describe complex instantiation behavior.
 
 
 ### Table
@@ -205,8 +205,8 @@ Class{a: Number, b: String, c: List<Bool>}
 > *grid, frame, dataframe*
 - Structure of rows and columns, combining features of both arrays and objects.
 - Table has schema - base class that describes it's structure, and data - array that contains instances of the schema.
-- Row `Table[2] -> {A: b, B: e, C: i}` is the specific instance of schema.
-- Column `Table[A] -> [a,d,g]` is the array of all values of a specific field.
+- Row `Table[2] → {A: b, B: e, C: i}` is the specific instance of schema.
+- Column `Table[A] → [a,d,g]` is the array of all values of a specific field.
 
 
 # Graph
