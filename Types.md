@@ -14,8 +14,8 @@ A list of types used to model real world phenomena, represent abstract concepts,
 
 ### Value
 > *entity, object, instance (if of specific type or class)*
-- ***Generalization of Exsistance/Singularity***
-- Something that exsists and is treated as a separate entity.
+- ***Generalization of Existence/Singularity***
+- Something that exists and is treated as a separate entity.
 
 
 ### Symbol
@@ -33,14 +33,14 @@ Foo
 a = 1 or a := 1 or a ← 1 or a: 1 (context-dependent assignment)
 ```
 > *definition, declaration, initialization, alias*
-- Specifies correspondance between a symbol (key) and an entity (value).
+- Specifies correspondence between a symbol (key) and an entity (value).
 - If the same variable is defined twice, it's reassigned (updated) with the latest value.
 
 
 ### Null
 > *nil, none, nothing, void*
 - ***Generalization of Absence***
-- Used to denote that something does not exsist.
+- Used to denote that something does not exist.
 - Is a type and a value simultaneously.
 
 
@@ -74,7 +74,7 @@ True
 ```
 > *character, sign, rune*
 - Image of a letter, number or any other character.
-- *Encoding* is collection of correspondings between symbols and natural numbers, which are used to represent them (`Natural → Character` pairs).
+- *Encoding* is collection of correspondences between symbols and natural numbers, which are used to represent them (`Natural → Character` pairs).
 
 
 ### Collection
@@ -135,9 +135,9 @@ a, b, c..
 ```
 a → b or a ⇨ b
 ```
-> *arrow, morphism, transformation, correspondance, projection, relation, conversion, link*
+> *arrow, morphism, transformation, correspondence, projection, relation, conversion, link*
 - ***Generalization of Relation***
-- Denotes the relation of one entiy/process to another.
+- Denotes the relation of one entity/process to another.
 - Maps can be composed, inverted, etc.
 
 
@@ -172,7 +172,7 @@ a ≠ b
 ```
 {a: [1], b: {2, 3}, 42: (x) → x²}
 ```
-> *dictionary, record, structure, document, state*
+> *dictionary, record, structure, document*
 - ***Generalization of Structure***
 - Set of `Symbol → Value` pairs.
 - Symbol is usually referred to as key, index, field, attribute or property.
@@ -207,7 +207,7 @@ Class{a: Number, b: String, c: List<Bool>}
 ```
 > *grid, frame, dataframe*
 - Structure of rows and columns, combining features of both arrays and objects.
-- Table has *schema* or *header* - base class that describes it's structure, and *data* - array that contains instances of the schema.
+- Table has *schema* or *header* - base class that describes structure of its elements, and *data* - array that contains instances of the schema.
 - Row `Table[2] → {A: b, B: e, C: i}` is the specific instance of schema.
 - Column `Table[A] → [a,d,g]` is the array of all values of a specific field.
 
@@ -234,20 +234,21 @@ Class{a: Number, b: String, c: List<Bool>}
 - ***Generalization of System***
 - Represents a set of *nodes* (objects) and *edges* (relations between them).
 - Edges can have direction, represent flow of data, transformation or any other process.
-- Nodes can have *state* (properties) and *behavior* (methods).
+- Nodes can have *state* (properties) and/or *behavior* (methods).
+- Nodes can also store functions, applied to data, that flows through the edges. This type of graph is called *computational*.
 - Graphs can be directed or undirected, weighted or unweighted, cyclic or acyclic, connected or disconnected, semantic, computational, etc.
 
 
 ### Task
 > *promise, future, process, deferred, delay, flow variable*
 - Represents continuous process that produces a value upon being completed.
-- Resulting value processing behavior can be specified via *callback* - special function which applied to a result when it becomes available.
+- Resulting value processing behavior can be specified via *callback* - special function which is applied to a result when it becomes available.
 - Task can be awaited.
 
 
 ### Stream
 > *channel, observable, subject, source, generator, producer, event emitter, event source*
-- Represents continuous process that is able to produce multiple results during its exsistance (life time).
-- Stream produces values before it's finished/completed/closed, while Task produces 1 value when it's finished. Finishing of stream doesn't return anything.
+- Represents continuous process that is able to produce multiple results during its existence (life time).
+- Stream can produce multiple values before it's finished/completed/closed, while Task produces 1 value when it's finished. Finishing of stream doesn't return anything.
 - Stream values can be watched/handled/subscribed to/listened to. It means a certain set of operations will be performed for every value, produced by stream.
 - Streams can also be awaited. Awaiting guarantees, that all values have already been emitted successfully and stream is closed.
