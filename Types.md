@@ -57,7 +57,7 @@ True
 
 ### Number
 ```
-42 or -3.14e+10 or -123+i345
+42 or -3.14e+10 or -123+i45
 ```
 - ***Generalization of Measure***
 > *measure, scale, scalar, dimension, quantity, amount*
@@ -95,7 +95,7 @@ a, b, c..
 > *series, row*
 - Ordered collection.
 - Has index, which is a number that denotes the position of an element in the collection `Sequence[1] → a`.
-- *Infinite* sequences are possible. They can be defined via expression or ellipsis `...` (or `..`) when the pattern is obvious, and are equivalent to functions.
+- *Infinite* sequences are possible. They can be defined via expression or ellipsis `...` (or `..`) when the pattern is obvious, and are equivalent to `Integer → Any` functions.
 - Sequences can be sliced, sorted, iterated, etc.
 
 
@@ -198,13 +198,13 @@ Class{a: Number, b: String, c: List<Bool>}
 
 
 ### Table
-```
-  │ A │ B │ C │
-──┼───┼───┼───┤
-1 │ a │ d │ g │
-2 │ b │ e │ i │
-3 │ c │ f │ j │
-```
+
+| A | B | C |
+|:-:|:-:|:-:|
+| a | d | g |
+| b | e | i |
+| c | f | j |
+
 > *grid, frame, dataframe*
 - Structure of rows and columns, combining features of both arrays and objects.
 - Table has *schema* or *header* - base class that describes structure of its elements, and *data* - array that contains instances of the schema.
@@ -213,22 +213,12 @@ Class{a: Number, b: String, c: List<Bool>}
 
 
 # Graph
-```
-┌───┐
-│ A │
-└───┘
-  │
-  │
-  ▼
-┌───┐
-│ B │
-└───┘
-  │
-  │
-  ▼
-┌───┐
-│ C │
-└───┘
+```mermaid
+graph LR
+  A((A)) --> B((B))
+  A((A)) --> C((C))
+  B --> D((D))
+  C --> D((D))
 ```
 > *system, network*
 - ***Generalization of System***
@@ -247,7 +237,7 @@ Class{a: Number, b: String, c: List<Bool>}
 
 
 ### Stream
-> *channel, observable, subject, source, generator, producer, event emitter, event source*
+> *channel, observable, subject, source, generator, producer, signal, event emitter, event source*
 - Represents continuous process that is able to produce multiple results during its existence (life time).
 - Stream can produce multiple values before it's finished/completed/closed, while Task produces 1 value when it's finished. Finishing of stream doesn't return anything.
 - Stream values can be watched/handled/subscribed to/listened to. It means a certain set of operations will be performed for every value, produced by stream.
