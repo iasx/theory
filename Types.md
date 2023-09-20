@@ -1,11 +1,11 @@
 # Types
 
-A list of types used to model real world phenomena, represent abstract concepts, describe systems and relations between them.
+A collection of abstract concepts used to model real world phenomena, describe systems, structures and relations between them.
 
 
 ### Type
 - ***Generalization of Concept***
-- Denotes abstract entity/process with specific propetries, features and/or behavior.
+- Denotes abstract entity/process with specific properties, features and/or behavior.
 - Some operations can be performed on types: union `A | B`, specification (narrowing) `A<B>`, etc.
 - Types can be extended/inherited with other types.
 - Type names are unique within their scope.
@@ -18,11 +18,11 @@ A list of types used to model real world phenomena, represent abstract concepts,
 - Something that exists and is treated as a separate entity.
 
 
-### Symbol
+### Name
 ```
 Foo
 ```
-> *identifier, variable, key, name*
+> *variable, key, symbol, identifier*
 - ***Generalization of Naming***
 - Entity that refers to a certain concept or denotes specific value.
 - Symbols are unique within their scope.
@@ -32,7 +32,7 @@ Foo
 ```
 a = 1 or a := 1 or a ← 1 or a: 1 (context-dependent assignment)
 ```
-> *definition, declaration, initialization, alias*
+> *definition, declaration, initialization, naming, alias*
 - Specifies correspondence between a symbol (key) and an entity (value).
 - If the same variable is defined twice, it's reassigned (updated) with the latest value.
 
@@ -79,9 +79,9 @@ True
 
 ### Collection
 ```
-a, b, c..
+( a  b  c )
 ```
-> *group*
+> *group, scope*
 - ***Generalization of Plurality***
 - Entities considered together and referred to as one entity.
 - Denotes not objects it's made up, but rather that something is considered in the context of multiplicity, as there can be an *empty* collection or collection of everything - *universum*.
@@ -89,13 +89,14 @@ a, b, c..
 
 ### Sequence
 ```
-[a, b, c..]
+(a, b, c)
 ```
 - ***Generalization of Order***
-> *series, row*
+> *tuple, series, row*
 - Ordered collection.
-- Has index, which is a number that denotes the position of an element in the collection `Sequence[1] → a`.
-- *Infinite* sequences are possible. They can be defined via expression or ellipsis `...` (or `..`) when the pattern is obvious, and are equivalent to `Integer → Any` functions.
+- Has index, which is an ordinal number that denotes the position of an element in the sequence `X[1] → x₁`.
+- Indices can also be negative, which means they are counted from the end of the sequence `X[-1] → xₙ`.
+- *Infinite* sequences are possible. They can be defined via expression (sequence comprehension) or ellipsis `..` (or `...`) when the pattern is obvious, and are equivalent to `Integer → Any` functions.
 - Sequences can be sliced, sorted, iterated, etc.
 
 
@@ -103,7 +104,7 @@ a, b, c..
 ```
 [a, b, c]
 ```
-> *list, vector, tuple*
+> *list, vector*
 - Finite sequence of elements of one type.
 - May represent a N-dimensional entity or a point in N-dimensional space.
 
@@ -115,11 +116,11 @@ a, b, c..
 │ c d │
 └     ┘
 ```
-- N-dimensional array of single type elements.
-- Has *shape*, which is a N-tuple of numbers `[1,2,3..N]` that denote the size of respective dimension.
-- 0-dimensional tensor is a *scalar*. 1-dimensional tensor is a *vector*. 2-dimensional tensor is a *matrix*.
+- N-dimensional array of single-type elements.
+- Has *shape*, which is a N-tuple of natural numbers `(1,2,3..N)` that denote the size of the respective dimension.
+- 0-dimensional tensor is a *scalar*, 1-dimensional - *vector*, 2-dimensional - *matrix*.
 - Tensors can be multiplied, transposed, inverted, etc.
-- May represent a transformation between spaces.
+- May represent a transformation of space.
 
 
 ### String
@@ -131,11 +132,11 @@ a, b, c..
 - Text search and manipulation operations can be performed on strings.
 
 
-### Map
+### Relation
 ```
 a → b or a ⇨ b
 ```
-> *arrow, morphism, transformation, correspondence, projection, relation, conversion, link*
+> *mapping, pair, arrow, morphism, transformation, correspondence, projection, conversion, link*
 - ***Generalization of Relation***
 - Denotes the relation of one entity/process to another.
 - Maps can be composed, inverted, etc.
@@ -149,13 +150,13 @@ x → x² or (x, y) ⇨ x²+y² or (args..) = (result = args[1]² + args[2]²; r
 - Denotes a transformation rule, by which a group of input values (arguments) is mapped to output value (result).
 - Function may also perform certain actions and return no value `F(x,y) -> Nil`.
 - Modifications that function makes to its outer environment are called *effects*. If function produces no effects, it is called *clear* function.
-- Functions can be applied, broadcasted, composed, etc.
+- Functions can be applied, broadcasted, composed, bound to events etc.
 
 
-### Predicate
+### Condition
 a ≠ b
-> *condition*
-- Function that returns bool value depending on combination of it's arguments and inner logic `(a ≠ b){a: 1, b: 1} → False`.
+> *predicate*
+- Function that returns bool value depending on combination of it's arguments and inner logic `1 ≠ 1 → False`.
 - May be used to filter collections, define a type, set, relation, etc.
 
 
@@ -168,22 +169,22 @@ a ≠ b
 - Similarly to collections, there can be *empty* set `∅ → {}` and *universum* `U → {*}`.
 
 
-### Object
+### Map
 ```
 {a: [1], b: {2, 3}, 42: (x) → x²}
 ```
-> *dictionary, record, structure, document*
+> *dictionary, object, record, structure, hashmap, hashtable, document, associative array, named tuple*
 - ***Generalization of Structure***
-- Set of `Symbol → Value` pairs.
-- Symbol is usually referred to as key, index, field, attribute or property.
+- Collection of `Name → Value` mappings.
+- Name is usually referred to as key, index, field, attribute or property.
 
 
 ### Bag
 ```
-{a: 1, b: 2, c: 3}
+{a: 2, b: 7, c: 9} or {a#2, b#7, c#9}
 ```
 - Set with repetitions.
-- Set of `Key → Number` pairs.
+- Collection of `Name → Number` pairs.
 - Value represents the number of repetitions of the key-element.
 
 
@@ -194,22 +195,22 @@ Class{a: Number, b: String, c: List<Bool>}
 > *schema, template*
 - Combination of set of `Key → Type` pairs and a type of the same name.
 - Similarly to types, classes can extend other types/classes, which means that they inherit all the properties of the parent type, modifying it's content or behavior.
-- Class has a special feature - *constructor*, which is a function with a name of the class, that returns an object of type of the class `Class(1,"42", [True]) → Class{a: 1, b: "42", c: [True]}`. This transformation is called *instantiation*. Constructors may be defined explicitly in order to describe complex instantiation behavior.
+- Has a special feature - *constructor*, which is a function with the name of the class, that returns an object of type of that class `Class(1,"42", [True]) → Class{a: 1, b: "42", c: [True]}`. This transformation is called *instantiation*. Constructors may be defined explicitly in order to describe complex instantiation behavior.
 
 
 ### Table
 
-| A | B | C |
-|:-:|:-:|:-:|
-| a | d | g |
-| b | e | i |
-| c | f | j |
+| A  | B  | C  |
+|:--:|:--:|:--:|
+| a₁ | b₁ | c₁ |
+| a₂ | b₂ | c₂ |
+| a₃ | b₃ | c₃ |
 
-> *grid, frame, dataframe*
+> *grid, frame, dataframe, sheet*
 - Structure of rows and columns, combining features of both arrays and objects.
 - Table has *schema* or *header* - base class that describes structure of its elements, and *data* - array that contains instances of the schema.
-- Row `Table[2] → {A: b, B: e, C: i}` is the specific instance of schema.
-- Column `Table[A] → [a,d,g]` is the array of all values of a specific field.
+- Row `Table[1] = {A: a₁, B: b₁, C: c₁}` is an object - the specific instance of schema.
+- Column `Table[A] = [a₁, a₂, a₃]` is an array of all values of the specific schema field.
 
 
 # Graph
@@ -219,26 +220,63 @@ graph LR
   A((A)) --> C((C))
   B --> D((D))
   C --> D((D))
+  C --> E((E))
+  E --> E((E))
 ```
 > *system, network*
 - ***Generalization of System***
 - Represents a set of *nodes* (objects) and *edges* (relations between them).
 - Edges can have direction, represent flow of data, transformation or any other process.
 - Nodes can have *state* (properties) and/or *behavior* (methods).
-- Nodes can also store functions, applied to data, that flows through the edges. This type of graph is called *computational*.
+- Nodes can also store functions called *effects* or *operations*, applied to data, that "flows" through the edges. This type of graph is called *computational*.
+- In addition, nodes can describe various states of the system while edges represent transitions between them. This type of graph is called *state machine* and often used to describe behavior of complex systems.
 - Graphs can be directed or undirected, weighted or unweighted, cyclic or acyclic, connected or disconnected, semantic, computational, etc.
+
+
+# Tree
+```mermaid
+graph
+  A((A)) --> B((B))
+  A((A)) --> C((C))
+  B --> D((D))
+  B --> E((E))
+  C --> F((F))
+  C --> G((G))
+  C --> H((H))
+  E --> I((I))
+```
+> *hierarchy*
+- A graph with a single root element and no loops.
+- Can be represented via nested objects.
+
+
+# Forest
+```mermaid
+graph
+  A((A)) --> B((B))
+  A((A)) --> C((C))
+  D((D)) --> E((E))
+  F((F)) --> G((G))
+  F((F)) --> H((H))
+  G((G)) --> I((I))
+  G((G)) --> J((J))
+```
+- Set of isolated trees.
 
 
 ### Task
 > *promise, future, process, deferred, delay, flow variable*
-- Represents continuous process that produces a value upon being completed.
+- Represents continuous process that produces a *result* (value) upon being *completed*.
 - Resulting value processing behavior can be specified via *callback* - special function which is applied to a result when it becomes available.
-- Task can be awaited.
+- Tasks can be awaited.
 
 
 ### Stream
 > *channel, observable, subject, source, generator, producer, signal, event emitter, event source*
-- Represents continuous process that is able to produce multiple results during its existence (life time).
-- Stream can produce multiple values before it's finished/completed/closed, while Task produces 1 value when it's finished. Finishing of stream doesn't return anything.
-- Stream values can be watched/handled/subscribed to/listened to. It means a certain set of operations will be performed for every value, produced by stream.
-- Streams can also be awaited. Awaiting guarantees, that all values have already been emitted successfully and stream is closed.
+- Represents continuous process that is able to *emit* multiple results during its *lifetime*.
+- Stream can produce any number of values before it is *closed*, while Task only produces a single value the moment it finishes.
+- Completion of a stream doesn't return anything, but this moment can be tracked and processed.
+- Stream output values can be *watched*/*handled*/*subscribed to*/*listened to*. It means a certain set of operations called *handler* will be performed for every value, produced by stream.
+- Streams can also be awaited. Awaiting guarantees, that all values have already been emitted and the stream is closed.
+- Sometimes emitted values are called *events*, *notifications*, *messages* or *updates*.
+- Popular nowadays *reactive* programming paradigm is based on streams.
