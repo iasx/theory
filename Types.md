@@ -1,6 +1,6 @@
 # Types
 
-A collection of abstract concepts used to model real world phenomena, describe systems, structures and relations between them.
+Collection of abstract concepts used to model real world phenomena, describe systems, structures and relations between them.
 
 
 ### Type
@@ -59,8 +59,8 @@ True
 ```
 42 or -3.14e+10 or -123+i45
 ```
-- ***Generalization of Measure***
 > *measure, scale, scalar, dimension, quantity, amount*
+- ***Generalization of Measure***
 - Represents a numeric value.
 - May represent a 1-dimensional entity or a point in 1-dimensional space.
 - Numbers have numerous subsets: integers, floats, natural (unsigned), complex numbers, etc.
@@ -92,11 +92,12 @@ True
 (a, b, c)
 ```
 - ***Generalization of Order***
-> *tuple, series, row*
+> *tuple, row*
 - Ordered collection.
 - Has index, which is an ordinal number that denotes the position of an element in the sequence `X[1] → x₁`.
 - Indices can also be negative, which means they are counted from the end of the sequence `X[-1] → xₙ`.
 - *Infinite* sequences are possible. They can be defined via expression (sequence comprehension) or ellipsis `..` (or `...`) when the pattern is obvious, and are equivalent to `Integer → Any` functions.
+- Sequences are heterogeneous, i.e. their elements can have different types.
 - Sequences can be sliced, sorted, iterated, etc.
 
 
@@ -104,8 +105,9 @@ True
 ```
 [a, b, c]
 ```
-> *list, vector*
-- Finite sequence of elements of one type.
+> *list, vector, series*
+- Finite sequence of elements.
+- Arrays are homogeneous, i.e. all their elements have the same type.
 - May represent a N-dimensional entity or a point in N-dimensional space.
 
 
@@ -146,7 +148,7 @@ a → b or a ⇨ b
 ```
 x → x² or (x, y) ⇨ x²+y² or (args..) = (result = args[1]² + args[2]²; return result)
 ```
-> *method, procedure, operation*
+> *method, procedure, operation, maplet*
 - Denotes a transformation rule, by which a group of input values (arguments) is mapped to output value (result).
 - Function may also perform certain actions and return no value `F(x,y) -> Nil`.
 - Modifications that function makes to its outer environment are called *effects*. If function produces no effects, it is called *clear* function.
@@ -183,16 +185,26 @@ a ≠ b
 ```
 {a: 2, b: 7, c: 9} or {a#2, b#7, c#9}
 ```
+> *multiset, counter set*
 - Set with repetitions.
 - Collection of `Name → Number` pairs.
 - Value represents the number of repetitions of the key-element.
 
 
+### Stack
+
+### Queue
+
+### Deque
+
+### Ordered Set
+
 ### Class
 ```
 Class{a: Number, b: String, c: List<Bool>}
 ```
-> *schema, template*
+> *schema, template, record, structure*
+- Bridge between types and objects. I a type and an object simultaneously.
 - Combination of set of `Key → Type` pairs and a type of the same name.
 - Similarly to types, classes can extend other types/classes, which means that they inherit all the properties of the parent type, modifying it's content or behavior.
 - Has a special feature - *constructor*, which is a function with the name of the class, that returns an object of type of that class `Class(1,"42", [True]) → Class{a: 1, b: "42", c: [True]}`. This transformation is called *instantiation*. Constructors may be defined explicitly in order to describe complex instantiation behavior.
@@ -213,7 +225,7 @@ Class{a: Number, b: String, c: List<Bool>}
 - Column `Table[A] = [a₁, a₂, a₃]` is an array of all values of the specific schema field.
 
 
-# Graph
+### Graph
 ```mermaid
 graph LR
   A((A)) --> B((B))
@@ -233,7 +245,7 @@ graph LR
 - Graphs can be directed or undirected, weighted or unweighted, cyclic or acyclic, connected or disconnected, semantic, computational, etc.
 
 
-# Tree
+### Tree
 ```mermaid
 graph
   A((A)) --> B((B))
@@ -250,7 +262,7 @@ graph
 - Can be represented via nested objects.
 
 
-# Forest
+### Forest
 ```mermaid
 graph
   A((A)) --> B((B))
@@ -261,7 +273,12 @@ graph
   G((G)) --> I((I))
   G((G)) --> J((J))
 ```
-- Set of isolated trees.
+- Set of multiple isolated trees.
+
+
+### Heap
+> *priority queue*
+- Special type of tree, where each node has a value that is greater than or equal to the value of its parent node.
 
 
 ### Task
@@ -274,9 +291,40 @@ graph
 ### Stream
 > *channel, observable, subject, source, generator, producer, signal, event emitter, event source*
 - Represents continuous process that is able to *emit* multiple results during its *lifetime*.
-- Stream can produce any number of values before it is *closed*, while Task only produces a single value the moment it finishes.
+- Stream can produce any number of values before it is *closed*, while Task only produces a single value the moment it completes.
 - Completion of a stream doesn't return anything, but this moment can be tracked and processed.
-- Stream output values can be *watched*/*handled*/*subscribed to*/*listened to*. It means a certain set of operations called *handler* will be performed for every value, produced by stream.
+- Stream output values can be *watched*/*handled*/*subscribed to*/*listened to* by *actor*/*handler*/*observer*/*subscription*. It means a certain set of operations will be performed for every value, produced by stream.
 - Streams can also be awaited. Awaiting guarantees, that all values have already been emitted and the stream is closed.
 - Sometimes emitted values are called *events*, *notifications*, *messages* or *updates*.
 - Popular nowadays *reactive* programming paradigm is based on streams.
+
+
+### Hub
+> *event bus*
+- Collection of event sources (subjects, topics, channels).
+- Publishers can emit events associated with a certain topic.
+- Subscribers can subscribe to a certain topic and receive events from it.
+- This type of communication allows to decouple publishers and subscribers.
+
+
+
+### State Machine
+```mermaid
+graph LR
+  A((A)) --> B((B))
+  A((A)) --> C((C))
+  B --> D((D))
+  C --> D((D))
+  C --> E((E))
+  E --> E((E))
+```
+> *automaton*
+
+
+<!-- TODO
+- objects are discrete functions `Name → Value`
+- functions are continuous objects
+- hubs (SignalR, socket.io, etc.)
+- streams (RxJS, Bacon.js, etc.)
+- computation graphs (neural networks, TensorFlow, JAX, etc.)
+-->
