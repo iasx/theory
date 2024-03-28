@@ -11,22 +11,21 @@ System of symbolic expressions for denoting common operations and data structure
 - ` $x `        variable, interpolation, stream
 - ` x! `        await asynchronous task
 - ` x? `        optional (in type definitions)
-- ` 1..n `  range
-- ` x.field ` property
-- ` ..array `  spread
+- ` 1..n `      range
+- ` x.field `   property
+- ` ..array `   spread
 - ` x ? y : z`  ternary
-- ` x | y `   logic OR, short-circuiting
-- ` x & y `   logic AND, short-circuiting
-- ` x ?? y `  nullish coalescing (!!x ? x : y)
-- ` x |> F `  pipe
-- ` x ?> F `  nullish coalescing (alternative syntax)
-- ` x *> F `  for each element (entries for objects)
-- ` x @> F `  for each key (indices for arrays, keys for objects)
-- ` x $> F `  for each value of stream/observable
-- ` x !> F `  for result task/stream completion
-- ` x .+ y `  mapping operation
-- ` x :: T `  type definition
-- ` x -> y `  function, mapping, edge, limit
+- ` x | y `     logic OR, short-circuiting
+- ` x & y `     logic AND, short-circuiting
+- ` x |> F `    pipe
+- ` x ?> F `    nullish coalescing (!!x ? x : y)
+- ` x *> F `    for each element (entries for objects)
+- ` x @> F `    for each key (indices for arrays, keys for objects)
+- ` x $> F `    for each value of stream/observable
+- ` x !> F `    for result task/stream completion
+- ` x .+ y `    mapping operation
+- ` x :: T `    type definition
+- ` x -> y `    function, mapping, edge, limit
 
 
 ### Brackets
