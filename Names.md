@@ -8,6 +8,7 @@ Common naming practices.
 
 - ` i `     index
 - ` j `     secondary index
+- ` _ `     discarded value
 - ` x `     argument, variable
 - ` f, F `  function
 - ` T `     type
