@@ -1,6 +1,6 @@
 # Data
 
-A collection of various data types and operations on them.
+Overview of various data models and operations.
 
 
 ## Data Models
@@ -9,6 +9,8 @@ A collection of various data types and operations on them.
 - Relational
 - Network
 - Object (Document)
+- Key-Value
+- Associative (partial → full)
 
 ## Basic Operations
 
