@@ -15,4 +15,6 @@ For example, in a banking application, a high-level module might be responsible 
 
 This approach allows for better organization, easier maintenance, and more efficient development. It also enables the reuse of components in different systems, as well as the seamless replacement of components with newer or more efficient ones without negatively affecting the system's integrity.
 
+<!-- + Composition -->
+
 <!-- TODO: SOLID -->

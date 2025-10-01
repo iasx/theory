@@ -1,6 +1,6 @@
 # Names
 
-Common naming practices.
+My common naming practices.
 
 ## Variables
 
@@ -19,7 +19,6 @@ Common naming practices.
 ###### Several Letters
 
 - ` id `    index
-- ` rg `    regex pattern
 - ` no `    error object
 - ` ok `    success object
 - ` i, rq ` request object
@@ -34,16 +33,15 @@ Common naming practices.
 - ` A Title `                 title (Title Case)
 - ` MyClass `                 class, module (PascalCase)
 - ` someFunc() `              function (camelCase)
-- ` _field `                  private (but i don't like it)
+- ` _field, __field `         protected, private (i don't like this)
 - ` IName `                   interface (only methods, multiple inheritance)
-- ` AName, BaseName `         abstract (only signatures, single inheritance, prefixing is optional)
-- ` trackPlay `               register an event listener
-- ` isPlay `                  bool, checker function
-- ` onPlay `                  event handler
-- ` rgMail `                  regex for email validation
+- ` BaseName `                abstract (partial definition signatures, single inheritance)
+- ` watchEvent `              register an event listener
+- ` isFlag `                  bool, checker function
+- ` onEvent `                 event handler
 - ` objRef `                  object reference
-- ` imgUrl `                  image Url
-- ` valueChange$, newValue$ ` Event, Observable, Subject (JavaScript)
+- ` imgUrl `                  image url
+- ` event$ `                  Event, Observable, Subject (JavaScript)
 
 ## Placeholders (docs, especially for command line tools)
 

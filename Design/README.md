@@ -5,7 +5,7 @@ This section covers system design principles, techniques and problem solving met
 
 ## Contents
 
+- [System Design](Design.md)
+- [Patterns](Patterns.md)
 - [Principles](Principles.md)
 - [Techniques](Techniques.md)
-- [System Design](Design.md)
-- [Methods](Methods.md)

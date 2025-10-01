@@ -55,7 +55,7 @@ System of symbolic expressions for denoting common operations and data structure
 - `List[1:2:10]`      slicing with step
   - `List[1:2:-1]`
   - `List[10:-2:1]`
-- `List[function]`    all elements where f(x) == true (Iverson Bracket Notation)
+- `List[func]`    all elements where func(x) == true (Iverson Bracket Notation)
   - `List[!!]`        all true elements
 
 - `Matrix[1, 1:5]`    multiple dimensions
